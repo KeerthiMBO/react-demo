@@ -1,0 +1,25 @@
+.users-container {
+  margin-top: 20px;
+}
+
+.user-list {
+  list-style: none;
+  padding: 0;
+  width: 200px;
+}
+
+.user-list-item {
+  margin-bottom: 10px;
+  border:2px solid black;
+  padding: 20px;
+}
+
+.user-list-item a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.user-list-item a:hover {
+  text-decoration: underline;
+}
