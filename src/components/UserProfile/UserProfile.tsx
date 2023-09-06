@@ -1,28 +1,42 @@
-// src/UserProfile.tsx
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import "./UserProfile.scss"; // Import the SCSS file
+import "./UserProfile.scss";
 
 export const UserProfile: React.FC = () => {
   const navigate = useNavigate();
   const { userId } = useParams<{ userId: string }>();
+  const [user, setUser] = useState<any>(null); // Initialize user state
 
-  if (!userId) {
-    // Handle the case when userId is undefined
-    return <div>User not found</div>;
+  useEffect(() => {
+    // Fetch user data based on userId (you may replace this with your actual data fetching logic)
+    const fetchUserData = async () => {
+      try {
+        // Simulated user data (replace with actual data fetching)
+        const userData = {
+          id: userId,
+          username: `user${userId}`,
+          name: `User ${userId}`,
+          email: `user${userId}@example.com`,
+        };
+
+        setUser(userData); // Set user data in state
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+    fetchUserData();
+  }, [userId]); // Fetch data whenever userId changes
+
+  if (!user) {
+    // Handle the case when user data is loading or not found
+    return <div>Loading...</div>;
   }
-
-  // Mock user data (replace with actual data)
-  const user = {
-    id: userId,
-    name: "User " + userId,
-    email: "user" + userId + "@example.com",
-    // Add more user details as needed
-  };
 
   const handleGoBack = () => {
     navigate("/users"); // Navigate back to the Users page
   };
+
   return (
     <div className="user-profile-container">
       <h2 className="user-name">{user.name}</h2>
