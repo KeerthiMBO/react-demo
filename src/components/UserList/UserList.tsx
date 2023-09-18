@@ -42,7 +42,7 @@ export const UserList: React.FC = () => {
     isError,
   } = useQuery<User[]>(
     ["users", page], // Use page number as part of the query key
-    () => fetchUsers(page),
+    () => fetchUsers(page), // query function
     {
       keepPreviousData: true, // Keep previous data while fetching new data
     }
