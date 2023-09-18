@@ -1,25 +1,104 @@
+/* src/components/UserList.scss */
+
 .users-container {
-  margin-top: 20px;
-}
-
-.user-list {
-  list-style: none;
-  padding: 0;
-  width: 200px;
-}
-
-.user-list-item {
-  margin-bottom: 10px;
-  border:2px solid black;
+  max-width: 600px;
+  margin: 0 auto;
   padding: 20px;
-}
 
-.user-list-item a {
-  text-decoration: none;
-  color: #333;
-  font-weight: bold;
-}
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
 
-.user-list-item a:hover {
-  text-decoration: underline;
+  .user-list {
+    list-style: none;
+    padding: 0;
+
+    .user-list-item {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 10px;
+      margin: 10px 0;
+      cursor: pointer;
+      transition: background-color 0.2s;
+
+      &:hover {
+        background-color: #f5f5f5;
+      }
+
+      a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+
+    button {
+      padding: 10px 15px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+
+      &:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+
+      &:hover:not(:disabled) {
+        background-color: #0056b3;
+      }
+    }
+  }
+
+  .new-user {
+    margin-top: 20px;
+
+    form {
+      display: flex;
+      flex-wrap: wrap;
+
+      input {
+        flex: 1;
+        padding: 10px;
+        margin: 5px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        transition: border-color 0.2s;
+
+        &:focus {
+          border-color: #007bff;
+          outline: none;
+        }
+      }
+
+      button {
+        flex: 1;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+
+        &:hover {
+          background-color: #0056b3;
+        }
+      }
+    }
+  }
 }
