@@ -28,6 +28,7 @@
     "webpack-dev-server": "4.15.1"
   },
   "devDependencies": {
+    "@tanstack/eslint-plugin-query": "4.34.1",
     "@typescript-eslint/eslint-plugin": "5.43.0",
     "@typescript-eslint/parser": "5.43.0",
     "css-loader": "6.8.1",
